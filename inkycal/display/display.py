@@ -98,6 +98,7 @@ class Display:
         else:
             print('Initialising..', end='')
             epaper.init()
+            epaper.Clear(epaper.WHITE)
             print('Updating display......', end='')
             epaper.display(epaper.getbuffer(im_black))
             print('Done')
