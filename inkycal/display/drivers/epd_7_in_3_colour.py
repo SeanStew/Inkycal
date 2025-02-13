@@ -236,6 +236,13 @@ class EPD:
         self.send_data2(image)
 
         self.TurnOnDisplay()
+
+    def display(self, blackimage, ryimage):
+        logger.info("epd7in3f - display")
+        self.send_command(0x10)
+        self.send_data2(blackimage)
+
+        self.TurnOnDisplay()
         
     def Clear(self, color=0x11):
         logger.info("epd7in3f - clear")
