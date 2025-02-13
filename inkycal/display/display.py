@@ -29,7 +29,7 @@ class Display:
         """Load the drivers for this epaper model"""
 
         if 'colour' in epaper_model:
-            self.supports_colour = True
+            self.supports_colour = False
         else:
             self.supports_colour = False
 
