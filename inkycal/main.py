@@ -365,17 +365,20 @@ class Inkycal:
                     self._remove_hashes(settings.IMAGE_FOLDER)
 
                 if self.supports_colour:
-                    im_black = self._merge_bands()
+                    im_black = Image.open(os.path.join(settings.IMAGE_FOLDER, "canvas.png"))
+                    im_colour = Image.open(os.path.join(settings.IMAGE_FOLDER, "canvas_colour.png"))
 
                     # Flip the image by 180° if required
                     if self.settings['orientation'] == 180:
                         im_black = upside_down(im_black)
+                        im_colour = upside_down(im_colour)
 
                     # Render the image on the display
                     if not self.settings.get('image_hash', False) or self._needs_image_update([
                         (f"{settings.IMAGE_FOLDER}/canvas.png.hash", im_black),
+                        (f"{settings.IMAGE_FOLDER}/canvas_colour.png.hash", im_colour)
                     ]):
-                        display.render(im_black, im_black)
+                        display.render(im_colour, im_colour)
 
                 # Part for black-white ePapers
                 else:
