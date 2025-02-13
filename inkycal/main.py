@@ -95,7 +95,7 @@ class Inkycal:
             os.mkdir(settings.CACHE_PATH)
 
         # Option to use epaper image optimisation, reduces colours
-        self.optimize = False
+        self.optimize = True
 
         self.show_border = self.settings.get('border_around_modules', False)
 
@@ -108,7 +108,7 @@ class Inkycal:
             self.Display = Display(self.settings["model"])
 
             # check if colours can be rendered
-            self.supports_colour = True if 'colour' in self.settings['model'] else False
+            self.supports_colour = False if 'colour' in self.settings['model'] else False
 
             # get calibration hours
             self._calibration_hours = self.settings['calibration_hours']
