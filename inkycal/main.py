@@ -95,7 +95,7 @@ class Inkycal:
             os.mkdir(settings.CACHE_PATH)
 
         # Option to use epaper image optimisation, reduces colours
-        self.optimize = True
+        self.optimize = False
 
         self.show_border = self.settings.get('border_around_modules', False)
 
