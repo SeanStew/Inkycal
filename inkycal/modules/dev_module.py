@@ -190,7 +190,7 @@ class Simple(inkycal_module):
 
         # Create an image for black pixels and one for coloured pixels (required)
         im_black = Image.new('RGB', size=im_size, color='white')
-        im_black = Image.new('RGB', size=im_size, color='white')
+        im_colour = Image.new('RGB', size=im_size, color='white')
 
         #################################################################
 
@@ -213,7 +213,7 @@ class Simple(inkycal_module):
         #################################################################
 
         # return the images ready for the display
-        return im_black, im_black
+        return im_black, im_colour
 
 
 if __name__ == '__main__':

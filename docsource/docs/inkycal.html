@@ -327,7 +327,7 @@ access to the E-Paper.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="inkycal.display.display.Display.render">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">im_black:</span> <span class="pre">~PIL.Image.Image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">im_black=&lt;class</span> <span class="pre">'PIL.Image.Image'&gt;</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#inkycal.display.display.Display.render" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">im_black:</span> <span class="pre">~PIL.Image.Image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">im_colour=&lt;class</span> <span class="pre">'PIL.Image.Image'&gt;</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#inkycal.display.display.Display.render" title="Permalink to this definition"></a></dt>
 <dd><p>Renders an image on the selected E-Paper display.</p>
 <p>Initlializes the E-Paper display, sends image data and executes command
 to update the display.</p>
@@ -336,7 +336,7 @@ to update the display.</p>
 <li><p>im_black: The image for the black-pixels. Anything in this image that is
 black is rendered as black on the display. This is required and ideally
 should be a black-white image.</p></li>
-<li><p>im_black: For E-Paper displays supporting colour, a separate image,
+<li><p>im_colour: For E-Paper displays supporting colour, a separate image,
 ideally black-white is required for the coloured pixels. Anything that is
 black in this image will show up as either red/yellow.</p></li>
 </ul>
@@ -395,7 +395,7 @@ which the given font should be scaled to.</p></li>
 <dl class="simple">
 <dt>Args:</dt><dd><ul class="simple">
 <li><p>image: The image on which the border should be drawn (usually im_black or
-im_black.</p></li>
+im_colour.</p></li>
 <li><p>xy: Tuple representing the top-left corner of the border e.g. (32, 100)
 where 32 is the x co-ordinate and 100 is the y-coordinate.</p></li>
 <li><p>size: Size of the border as a tuple -&gt; (width, height).</p></li>
@@ -497,7 +497,7 @@ splitting the text into the next chunk.</p></li>
 <p>Writes given text at given position on the specified image.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><ul class="simple">
-<li><p>image: The image to draw this text on, usually im_black or im_black.</p></li>
+<li><p>image: The image to draw this text on, usually im_black or im_colour.</p></li>
 <li><p>xy: tuple-&gt; (x,y) representing the x and y co-ordinate.</p></li>
 <li><p>box_size: tuple -&gt; (width, height) representing the size of the text box.</p></li>
 <li><p>text: string, the actual text to add on the image.</p></li>

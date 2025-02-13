@@ -44,7 +44,7 @@ class Tindie(inkycal_module):
 
         # Create an image for black pixels and one for coloured pixels
         im_black = Image.new('RGB', size=im_size, color='white')
-        im_black = Image.new('RGB', size=im_size, color='white')
+        im_colour = Image.new('RGB', size=im_size, color='white')
 
         # Check if internet is available
         if internet_available():
@@ -101,9 +101,9 @@ class Tindie(inkycal_module):
                 logger.error(f'Ran out of lines! Required {len(text)} lines but only {max_lines} available')
                 break
             if pos == 0:
-                write(im_black, line_positions[pos], (line_width, line_height), line, font=self.font, alignment='left')
+                write(im_colour, line_positions[pos], (line_width, line_height), line, font=self.font, alignment='left')
             else:
                 write(im_black, line_positions[pos], (line_width, line_height), line, font=self.font, alignment='left')
 
         # Return images for black and colour channels
-        return im_black, im_black
+        return im_black, im_colour

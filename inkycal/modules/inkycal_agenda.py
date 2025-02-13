@@ -92,7 +92,7 @@ class Agenda(inkycal_module):
 
         # Create an image for black pixels and one for coloured pixels
         im_black = Image.new('RGB', size=im_size, color='white')
-        im_black = Image.new('RGB', size=im_size, color='white')
+        im_colour = Image.new('RGB', size=im_size, color='white')
 
         # Calculate the max number of lines that can fit on the image
         line_spacing = 1
@@ -185,7 +185,7 @@ class Agenda(inkycal_module):
 
                 # Check if item is a date
                 if 'end' not in _:
-                    ImageDraw.Draw(im_black).line(
+                    ImageDraw.Draw(im_colour).line(
                         (0, line_pos[cursor][1], im_width, line_pos[cursor][1]),
                         fill='black')
 
@@ -220,7 +220,7 @@ class Agenda(inkycal_module):
             cursor = 0
             for _ in agenda_events:
                 title = _['title']
-                ImageDraw.Draw(im_black).line(
+                ImageDraw.Draw(im_colour).line(
                     (0, line_pos[cursor][1], im_width, line_pos[cursor][1]),
                     fill='black')
 
@@ -230,4 +230,4 @@ class Agenda(inkycal_module):
                 cursor += 1
 
         # return the images ready for the display
-        return im_black, im_black
+        return im_black, im_colour

@@ -39,9 +39,9 @@ class TestTodoist(unittest.TestCase):
             for test in tests:
                 print(f'test {tests.index(test) + 1} generating image..')
                 module = Todoist(test)
-                im_black, im_black = module.generate_image()
+                im_black, im_colour = module.generate_image()
                 print('OK')
                 if Config.USE_PREVIEW:
-                    merge(im_black, im_black).show()
+                    merge(im_black, im_colour).show()
         else:
             print('No api key given, omitting test')

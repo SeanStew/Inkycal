@@ -60,7 +60,7 @@ class Display:
             black is rendered as black on the display. This is required and ideally
             should be a black-white image.
 
-          - im_black: For E-Paper displays supporting colour, a separate image,
+          - im_colour: For E-Paper displays supporting colour, a separate image,
             ideally black-white is required for the coloured pixels. Anything that is
             black in this image will show up as either red/yellow.
 
@@ -88,12 +88,12 @@ class Display:
         epaper = self._epaper
 
         if self.supports_colour:
-            if not im_black:
-                raise Exception('im_black is required for coloured epaper displays')
+            if not im_colour:
+                raise Exception('im_colour is required for coloured epaper displays')
             print('Initialising..', end='')
             epaper.init()
             print('Updating display......', end='')
-            epaper.display(epaper.getbuffer(im_black), epaper.getbuffer(im_black))
+            epaper.display(epaper.getbuffer(im_black), epaper.getbuffer(im_colour))
             print('Done')
         else:
             print('Initialising..', end='')

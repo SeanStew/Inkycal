@@ -121,7 +121,7 @@ class Slideshow(inkycal_module):
         im.resize(width=im_width, height=im_height)
 
         # convert images according to specified palette
-        im_black, im_black = image_to_palette(im.image.convert("RGB"), self.palette)
+        im_black, im_colour = image_to_palette(im.image.convert("RGB"), self.palette)
 
         # with the images now send, clear the current image
         im.clear()
@@ -129,7 +129,7 @@ class Slideshow(inkycal_module):
         self.cache.write(self.cache_data)
 
         # return images
-        return im_black, im_black
+        return im_black, im_colour
 
 
 if __name__ == '__main__':

@@ -178,8 +178,8 @@ class TestWeather(unittest.TestCase):
         for test in tests:
             logger.info(f'test {tests.index(test) + 1} generating image..')
             module = Weather(test)
-            im_black, im_black = module.generate_image()
+            im_black, im_colour = module.generate_image()
             logger.info('OK')
             if Config.USE_PREVIEW:
-                merged = merge(im_black, im_black)
+                merged = merge(im_black, im_colour)
                 preview(merged)

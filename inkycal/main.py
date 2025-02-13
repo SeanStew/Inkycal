@@ -366,19 +366,19 @@ class Inkycal:
 
                 if self.supports_colour:
                     im_black = Image.open(os.path.join(settings.IMAGE_FOLDER, "canvas.png"))
-                    im_black = Image.open(os.path.join(settings.IMAGE_FOLDER, "canvas_colour.png"))
+                    im_colour = Image.open(os.path.join(settings.IMAGE_FOLDER, "canvas_colour.png"))
 
                     # Flip the image by 180° if required
                     if self.settings['orientation'] == 180:
                         im_black = upside_down(im_black)
-                        im_black = upside_down(im_black)
+                        im_colour = upside_down(im_colour)
 
                     # Render the image on the display
                     if not self.settings.get('image_hash', False) or self._needs_image_update([
                         (f"{settings.IMAGE_FOLDER}/canvas.png.hash", im_black),
-                        (f"{settings.IMAGE_FOLDER}/canvas_colour.png.hash", im_black)
+                        (f"{settings.IMAGE_FOLDER}/canvas_colour.png.hash", im_colour)
                     ]):
-                        display.render(im_black, im_black)
+                        display.render(im_colour, im_colour)
 
                 # Part for black-white ePapers
                 else:
@@ -455,7 +455,7 @@ class Inkycal:
         width, height = height, width
 
         im_black = Image.new('RGB', (width, height), color='white')
-        im_black = Image.new('RGB', (width, height), color='white')
+        im_colour = Image.new('RGB', (width, height), color='white')
 
         # Set cursor for y-axis
         im1_cursor = 0
@@ -512,7 +512,7 @@ class Inkycal:
                     y = im2_cursor + int((section_size[1] - im2_size[1]) / 2)
 
                 # center the image in the section space
-                im_black.paste(im2, (x, y), im2)
+                im_colour.paste(im2, (x, y), im2)
 
                 # Shift the y-axis cursor at the beginning of next section
                 im2_cursor += section_size[1]
@@ -533,10 +533,10 @@ class Inkycal:
         # optimize the image by mapping colours to pure black and white
         if self.optimize:
             im_black = self._optimize_im(im_black)
-            im_black = self._optimize_im(im_black)
+            im_colour = self._optimize_im(im_colour)
 
         im_black.save(os.path.join(settings.IMAGE_FOLDER, "canvas.png"), "PNG")
-        im_black.save(os.path.join(settings.IMAGE_FOLDER, "canvas_colour.png"), 'PNG')
+        im_colour.save(os.path.join(settings.IMAGE_FOLDER, "canvas_colour.png"), 'PNG')
 
         # Additionally, combine the two images with color
         def clear_white(img):
@@ -562,10 +562,10 @@ class Inkycal:
 
         # Save full-screen images as well
         im_black = clear_white(im_black)
-        im_black = black_to_colour(im_black)
+        im_colour = black_to_colour(im_colour)
 
-        im_black.paste(im_black, (0, 0), im_black)
-        im_black.save(os.path.join(settings.IMAGE_FOLDER, 'full-screen.png'), 'PNG')
+        im_colour.paste(im_black, (0, 0), im_black)
+        im_colour.save(os.path.join(settings.IMAGE_FOLDER, 'full-screen.png'), 'PNG')
 
     @staticmethod
     def _optimize_im(image, threshold=220):

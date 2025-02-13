@@ -79,7 +79,7 @@ class Feeds(inkycal_module):
 
         # Create an image for black pixels and one for coloured pixels
         im_black = Image.new('RGB', size=im_size, color='white')
-        im_black = Image.new('RGB', size=im_size, color='white')
+        im_colour = Image.new('RGB', size=im_size, color='white')
 
         # Check if internet is available
         if internet_available():
@@ -149,4 +149,4 @@ class Feeds(inkycal_module):
                       filtered_feeds[_], font=self.font, alignment='left')
 
         # return images
-        return im_black, im_black
+        return im_black, im_colour

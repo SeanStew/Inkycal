@@ -68,7 +68,7 @@ class TestAgenda(unittest.TestCase):
         for test in tests:
             logger.info(f'test {tests.index(test) + 1} generating image..')
             module = Agenda(test)
-            im_black, im_black = module.generate_image()
+            im_black, im_colour = module.generate_image()
             logger.info('OK')
             if Config.USE_PREVIEW:
-                merge(im_black, im_black).show()
+                merge(im_black, im_colour).show()
