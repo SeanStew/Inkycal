@@ -156,7 +156,7 @@ class Weather(inkycal_module):
 
         # Create an image for black pixels and one for coloured pixels
         im_black = Image.new('RGB', size=im_size, color='white')
-        im_colour = Image.new('RGB', size=im_size, color='white')
+        im_black = Image.new('RGB', size=im_size, color='white')
 
         # Check if internet is available
         if internet_available():
@@ -476,11 +476,11 @@ class Weather(inkycal_module):
         moon_phase = get_moon_phase()
 
         # Fill weather details in col 1 (current weather icon)
-        draw_icon(im_colour, weather_icon_pos, (col_width, im_height),
+        draw_icon(im_black, weather_icon_pos, (col_width, im_height),
                   weather_icons[weather_icon])
 
         # Fill weather details in col 2 (temp, humidity, wind)
-        draw_icon(im_colour, temperature_icon_pos, (icon_small, row_height),
+        draw_icon(im_black, temperature_icon_pos, (icon_small, row_height),
                   '\uf053')
 
         if is_negative(temperature):
@@ -490,26 +490,26 @@ class Weather(inkycal_module):
             write(im_black, temperature_pos, (col_width - icon_small, row_height),
                   temperature, font=self.font)
 
-        draw_icon(im_colour, humidity_icon_pos, (icon_small, row_height),
+        draw_icon(im_black, humidity_icon_pos, (icon_small, row_height),
                   '\uf07a')
 
         write(im_black, humidity_pos, (col_width - icon_small, row_height),
               humidity + '%', font=self.font)
 
-        draw_icon(im_colour, windspeed_icon_pos, (icon_small, icon_small),
+        draw_icon(im_black, windspeed_icon_pos, (icon_small, icon_small),
                   '\uf050')
 
         write(im_black, windspeed_pos, (col_width - icon_small, row_height),
               wind, font=self.font)
 
         # Fill weather details in col 3 (moonphase, sunrise, sunset)
-        draw_icon(im_colour, moonphase_pos, (col_width, row_height), moon_phase)
+        draw_icon(im_black, moonphase_pos, (col_width, row_height), moon_phase)
 
-        draw_icon(im_colour, sunrise_icon_pos, (icon_small, icon_small), '\uf051')
+        draw_icon(im_black, sunrise_icon_pos, (icon_small, icon_small), '\uf051')
         write(im_black, sunrise_time_pos, (col_width - icon_small, row_height),
               sunrise, font=self.font)
 
-        draw_icon(im_colour, sunset_icon_pos, (icon_small, icon_small), '\uf052')
+        draw_icon(im_black, sunset_icon_pos, (icon_small, icon_small), '\uf052')
         write(im_black, sunset_time_pos, (col_width - icon_small, row_height), sunset,
               font=self.font)
 
@@ -525,7 +525,7 @@ class Weather(inkycal_module):
 
             write(im_black, eval(f'stamp_fc{pos}'), (col_width, row_height),
                   stamp, font=self.font)
-            draw_icon(im_colour, eval(f'icon_fc{pos}'), (col_width, row_height + line_gap * 2),
+            draw_icon(im_black, eval(f'icon_fc{pos}'), (col_width, row_height + line_gap * 2),
                       icon)
             write(im_black, eval(f'temp_fc{pos}'), (col_width, row_height),
                   temp, font=self.font)
@@ -542,7 +542,7 @@ class Weather(inkycal_module):
                         shrinkage=(0, 0))
 
         # return the images ready for the display
-        return im_black, im_colour
+        return im_black, im_black
 
 
 if __name__ == '__main__':

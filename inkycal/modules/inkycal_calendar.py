@@ -104,7 +104,7 @@ class Calendar(inkycal_module):
 
         # Create an image for black pixels and one for coloured pixels
         im_black = Image.new('RGB', size=im_size, color='white')
-        im_colour = Image.new('RGB', size=im_size, color='white')
+        im_black = Image.new('RGB', size=im_size, color='white')
 
         # Allocate space for month-names, weekdays etc.
         month_name_height = int(im_height * 0.10)
@@ -245,7 +245,7 @@ class Calendar(inkycal_module):
             fill_height=0.5,
             colour='white',
         )
-        im_colour.paste(icon, current_day_pos, icon)
+        im_black.paste(icon, current_day_pos, icon)
 
         # If events should be loaded and shown...
         if self.show_events:
@@ -319,7 +319,7 @@ class Calendar(inkycal_module):
             for days in days_with_events:
                 if days in grid:
                     draw_border(
-                        im_colour,
+                        im_black,
                         grid[days],
                         (icon_width, icon_height),
                         radius=6
@@ -376,7 +376,7 @@ class Calendar(inkycal_module):
 
                         if now < event['end']:
                             write(
-                                im_colour,
+                                im_black,
                                 event_lines[cursor],
                                 (date_width, line_height),
                                 the_date,
@@ -427,4 +427,4 @@ class Calendar(inkycal_module):
                 )
 
         # return the images ready for the display
-        return im_black, im_colour
+        return im_black, im_black

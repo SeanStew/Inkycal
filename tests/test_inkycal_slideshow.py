@@ -140,24 +140,24 @@ class TestSlideshow(unittest.TestCase):
         for test in tests:
             logger.info(f'test {tests.index(test) + 1} generating image..')
             module = Slideshow(test)
-            im_black, im_colour = module.generate_image()
+            im_black, im_black = module.generate_image()
             logger.info('OK')
             if Config.USE_PREVIEW:
-                merge(im_black, im_colour).show()
+                merge(im_black, im_black).show()
 
     def test_switch_to_next_image(self):
         logger.info(f'testing switching to next images..')
         module = Slideshow(tests[0])
-        im_black, im_colour = module.generate_image()
+        im_black, im_black = module.generate_image()
         if Config.USE_PREVIEW:
-            merge(im_black, im_colour).show()
+            merge(im_black, im_black).show()
 
-        im_black, im_colour = module.generate_image()
+        im_black, im_black = module.generate_image()
         if Config.USE_PREVIEW:
-            merge(im_black, im_colour).show()
+            merge(im_black, im_black).show()
 
-        im_black, im_colour = module.generate_image()
+        im_black, im_black = module.generate_image()
         if Config.USE_PREVIEW:
-            merge(im_black, im_colour).show()
+            merge(im_black, im_black).show()
 
         logger.info('OK')

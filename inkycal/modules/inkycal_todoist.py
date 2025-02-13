@@ -74,7 +74,7 @@ class Todoist(inkycal_module):
 
         # Create an image for black pixels and one for coloured pixels
         im_black = Image.new('RGB', size=im_size, color='white')
-        im_colour = Image.new('RGB', size=im_size, color='white')
+        im_black = Image.new('RGB', size=im_size, color='white')
 
         # Check if internet is available
         if internet_available():
@@ -170,7 +170,7 @@ class Todoist(inkycal_module):
                         if todo['project']:
                             # Add todos project name
                             write(
-                                im_colour, line_positions[cursor],
+                                im_black, line_positions[cursor],
                                 (project_offset, line_height),
                                 todo['project'], font=self.font, alignment='left')
 
@@ -196,4 +196,4 @@ class Todoist(inkycal_module):
                         break
 
         # return the images ready for the display
-        return im_black, im_colour
+        return im_black, im_black

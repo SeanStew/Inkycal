@@ -106,13 +106,13 @@ class Inkyserver(inkycal_module):
         im.resize(width=im_width, height=im_height)
 
         # convert image to given palette
-        im_black, im_colour = im.to_palette(self.palette, dither=self.dither)
+        im_black, im_black = im.to_palette(self.palette, dither=self.dither)
 
         # with the images now send, clear the current image
         im.clear()
 
         # return images
-        return im_black, im_colour
+        return im_black, im_black
 
 
 if __name__ == '__main__':

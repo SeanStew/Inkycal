@@ -643,10 +643,10 @@ class Fullweather(inkycal_module):
 
         logger.info("Fullscreen weather forecast generated successfully.")
         # Convert images according to specified palette
-        im_black, im_colour = image_to_palette(image=self.image, palette="bwr", dither=True)
+        im_black, im_black = image_to_palette(image=self.image, palette="bwr", dither=True)
 
         # Return the images ready for the display
-        return im_black, im_colour
+        return im_black, im_black
 
     def get_font(self, style, size):
         # Returns the TrueType font object with the given characteristics

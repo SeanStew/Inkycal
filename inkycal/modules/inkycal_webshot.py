@@ -102,7 +102,7 @@ class Webshot(inkycal_module):
 
         # Create an image for black pixels and one for coloured pixels (required)
         im_black = Image.new('RGB', size=im_size, color='white')
-        im_colour = Image.new('RGB', size=im_size, color='white')
+        im_black = Image.new('RGB', size=im_size, color='white')
 
         # Check if internet is available
         if internet_available():
@@ -167,17 +167,17 @@ class Webshot(inkycal_module):
             im_black = im_black.rotate(self.rotation, expand=True)
 
             webshotSpaceColour.paste(im_webshot_colour, (centerPosX, webshotCenterPosY))
-            im_colour.paste(webshotSpaceColour)
-            im_colour = im_colour.rotate(self.rotation, expand=True)
+            im_black.paste(webshotSpaceColour)
+            im_black = im_black.rotate(self.rotation, expand=True)
         else:
             webshotSpaceBlack.paste(im_webshot_black, (centerPosX, webshotCenterPosY))
             im_black.paste(webshotSpaceBlack)
 
             webshotSpaceColour.paste(im_webshot_colour, (centerPosX, webshotCenterPosY))
-            im_colour.paste(webshotSpaceColour)
+            im_black.paste(webshotSpaceColour)
 
         im.clear()
         logger.info(f'added webshot image')
 
         # Save image of black and colour channel in image-folder
-        return im_black, im_colour
+        return im_black, im_black

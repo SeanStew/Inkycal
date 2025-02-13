@@ -67,7 +67,7 @@ class Stocks(inkycal_module):
 
         # Create an image for black pixels and one for coloured pixels (required)
         im_black = Image.new('RGB', size=im_size, color='white')
-        im_colour = Image.new('RGB', size=im_size, color='white')
+        im_black = Image.new('RGB', size=im_size, color='white')
 
         # Create tmp path
         tmpPath = 'temp/'
@@ -234,7 +234,7 @@ class Stocks(inkycal_module):
                 chartSpace.paste(chartImage, (chartPasteX, chartPasteY))
 
         im_black.paste(chartSpace)
-        im_colour.paste(chartSpace_colour)
+        im_black.paste(chartSpace_colour)
 
         # Write/Draw something on the black image
         for _ in range(len(parsed_tickers)):
@@ -249,9 +249,9 @@ class Stocks(inkycal_module):
             if _ + 1 > max_lines:
                 logger.error('Ran out of lines for parsed_tickers_colour')
                 break
-            write(im_colour, line_positions[_], (line_width, line_height),
+            write(im_black, line_positions[_], (line_width, line_height),
                   parsed_tickers_colour[_], font=self.font, alignment='left')
 
         # Save image of black and colour channel in image-folder
-        return im_black, im_colour
+        return im_black, im_black
 

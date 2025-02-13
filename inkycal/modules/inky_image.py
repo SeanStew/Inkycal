@@ -297,18 +297,18 @@ def image_to_palette(
         buffer2[numpy.logical_and(g == g_col, b == 0)] = [0, 0, 0]
 
         # reconstruct image for colour-band
-        im_colour = Image.fromarray(buffer2)
+        im_black = Image.fromarray(buffer2)
 
         # self.preview(im_black)
-        # self.preview(im_colour)
+        # self.preview(im_black)
 
     else:
         im_black = image.convert("1", dither=dither)
-        im_colour = Image.new(mode="1", size=im_black.size, color="white")
+        im_black = Image.new(mode="1", size=im_black.size, color="white")
 
     logger.info("mapped image to specified palette")
 
-    return im_black, im_colour
+    return im_black, im_black
 
 
 if __name__ == "__main__":

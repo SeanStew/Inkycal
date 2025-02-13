@@ -117,7 +117,7 @@ def write(image: Image, xy: Tuple[int, int], box_size: Tuple[int, int], text: st
     Writes given text at given position on the specified image.
 
     Args:
-      - image: The image to draw this text on, usually im_black or im_colour.
+      - image: The image to draw this text on, usually im_black or im_black.
       - xy: tuple-> (x,y) representing the x and y co-ordinate.
       - box_size: tuple -> (width, height) representing the size of the text box.
       - text: string, the actual text to add on the image.
@@ -283,7 +283,7 @@ def draw_border(image: Image, xy: Tuple[int, int], size: Tuple[int, int], radius
 
     Args:
       - image: The image on which the border should be drawn (usually im_black or
-        im_colour).
+        im_black).
 
       - xy: Tuple representing the top-left corner of the border e.g. (32, 100)
         where 32 is the x-coordinate and 100 is the y-coordinate.

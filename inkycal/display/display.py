@@ -49,7 +49,7 @@ class Display:
         # TODO implement test image
         raise NotImplementedError("Devs were too lazy again, sorry, please try again later")
 
-    def render(self, im_black: PIL.Image, im_colour: PIL.Image or None = None) -> None:
+    def render(self, im_black: PIL.Image, im_black: PIL.Image or None = None) -> None:
         """Renders an image on the selected E-Paper display.
 
         Initlializes the E-Paper display, sends image data and executes command
@@ -60,7 +60,7 @@ class Display:
             black is rendered as black on the display. This is required and ideally
             should be a black-white image.
 
-          - im_colour: For E-Paper displays supporting colour, a separate image,
+          - im_black: For E-Paper displays supporting colour, a separate image,
             ideally black-white is required for the coloured pixels. Anything that is
             black in this image will show up as either red/yellow.
 
@@ -88,12 +88,12 @@ class Display:
         epaper = self._epaper
 
         if self.supports_colour:
-            if not im_colour:
-                raise Exception('im_colour is required for coloured epaper displays')
+            if not im_black:
+                raise Exception('im_black is required for coloured epaper displays')
             print('Initialising..', end='')
             epaper.init()
             print('Updating display......', end='')
-            epaper.display(epaper.getbuffer(im_black), epaper.getbuffer(im_colour))
+            epaper.display(epaper.getbuffer(im_black), epaper.getbuffer(im_black))
             print('Done')
         else:
             print('Initialising..', end='')

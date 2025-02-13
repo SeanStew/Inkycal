@@ -72,7 +72,7 @@ class Xkcd(inkycal_module):
 
         # Create an image for black pixels and one for coloured pixels (required)
         im_black = Image.new('RGB', size=im_size, color='white')
-        im_colour = Image.new('RGB', size=im_size, color='white')
+        im_black = Image.new('RGB', size=im_size, color='white')
 
         # Check if internet is available
         if internet_available():
@@ -186,7 +186,7 @@ class Xkcd(inkycal_module):
         im_black.paste(comicSpaceBlack)
 
         comicSpaceColour.paste(im_comic_colour, (centerPosX, comicCenterPosY))
-        im_colour.paste(comicSpaceColour)
+        im_black.paste(comicSpaceColour)
 
         im.clear()
         logger.info(f'added comic image')
@@ -202,4 +202,4 @@ class Xkcd(inkycal_module):
                       alt_lines[_], font=self.font, alignment='left')
 
         # Save image of black and colour channel in image-folder
-        return im_black, im_colour
+        return im_black, im_black

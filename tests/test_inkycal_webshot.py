@@ -67,7 +67,7 @@ class TestWebshot(unittest.TestCase):
         for test in tests:
             logger.info(f'test {tests.index(test) + 1} generating image..')
             module = Webshot(test)
-            im_black, im_colour = module.generate_image()
+            im_black, im_black = module.generate_image()
             if Config.USE_PREVIEW:
-                merge(im_black, im_colour).show()
+                merge(im_black, im_black).show()
             logger.info('OK')

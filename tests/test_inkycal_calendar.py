@@ -73,7 +73,7 @@ class TestCalendar(unittest.TestCase):
         for test in tests:
             print(f'test {tests.index(test) + 1} generating image..', end="")
             module = Calendar(test)
-            im_black, im_colour = module.generate_image()
+            im_black, im_black = module.generate_image()
             print('OK')
             if Config.USE_PREVIEW:
-                merge(im_black, im_colour).show()
+                merge(im_black, im_black).show()

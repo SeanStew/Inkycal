@@ -43,7 +43,7 @@ class Jokes(inkycal_module):
 
         # Create an image for black pixels and one for coloured pixels
         im_black = Image.new('RGB', size=im_size, color='white')
-        im_colour = Image.new('RGB', size=im_size, color='white')
+        im_black = Image.new('RGB', size=im_size, color='white')
 
         # Check if internet is available
         if internet_available():
@@ -96,4 +96,4 @@ class Jokes(inkycal_module):
                   wrapped[_], font=self.font, alignment='left')
 
         # Return images for black and colour channels
-        return im_black, im_colour
+        return im_black, im_black
