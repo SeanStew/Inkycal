@@ -49,7 +49,7 @@ class Display:
         # TODO implement test image
         raise NotImplementedError("Devs were too lazy again, sorry, please try again later")
 
-    def render(self, im_black: PIL.Image, im_black: PIL.Image or None = None) -> None:
+    def render(self, im_black: PIL.Image, im_colour: PIL.Image or None = None) -> None:
         """Renders an image on the selected E-Paper display.
 
         Initlializes the E-Paper display, sends image data and executes command
