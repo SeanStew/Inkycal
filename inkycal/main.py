@@ -375,7 +375,7 @@ class Inkycal:
                     if not self.settings.get('image_hash', False) or self._needs_image_update([
                         (f"{settings.IMAGE_FOLDER}/canvas.png.hash", im_black),
                     ]):
-                        display.render(im_black)
+                        display.render(im_black, im_black)
 
                 # Part for black-white ePapers
                 else:
