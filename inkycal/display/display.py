@@ -135,24 +135,14 @@ class Display:
 
         print('----------Started calibration of ePaper display----------')
         if self.supports_colour:
-            for _ in range(cycles):
-                print('Calibrating...', end=' ')
-                print('black...', end=' ')
-                epaper.display(epaper.getbuffer(black), epaper.getbuffer(white))
-                print('colour...', end=' ')
-                epaper.display(epaper.getbuffer(white), epaper.getbuffer(black))
-                print('white...')
-                epaper.display(epaper.getbuffer(white), epaper.getbuffer(white))
-                print(f'Cycle {_ + 1} of {cycles} complete')
+            print('Calibrating...', end=' ')
+            epaper.display(epaper.getbuffer(black), epaper.getbuffer(white))
+            print(f'Cycle complete')
 
         if not self.supports_colour:
-            for _ in range(cycles):
-                print('Calibrating...', end=' ')
-                print('black...', end=' ')
-                epaper.display(epaper.getbuffer(black))
-                print('white...')
-                epaper.display(epaper.getbuffer(white)),
-                print(f'Cycle {_ + 1} of {cycles} complete')
+            print('Calibrating...', end=' ')
+            epaper.display(epaper.getbuffer(black))
+            print(f'Cycle complete')
 
             print('-----------Calibration complete----------')
             epaper.sleep()
