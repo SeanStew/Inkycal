@@ -378,7 +378,7 @@ class Inkycal:
                         (f"{settings.IMAGE_FOLDER}/canvas.png.hash", im_black),
                         (f"{settings.IMAGE_FOLDER}/canvas_colour.png.hash", im_colour)
                     ]):
-                        display.render(im_colour, im_colour)
+                        display.render(im_black, im_colour)
 
                 # Part for black-white ePapers
                 else:
