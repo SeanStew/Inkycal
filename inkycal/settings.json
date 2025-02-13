@@ -1,49 +1,76 @@
-
 {
-    "model": "epd_7_in_5_v3_colour",
-    "update_interval": 5,
+    "model": "epd_7_in_3_colour",
+    "update_interval": 60,
     "orientation": 0,
     "info_section": true,
-    "info_section_height": 70,
-    "calibration_hours": [0, 12, 18],
-    "border_around_modules": true,
+    "info_section_height": 20,
+    "border_around_modules": false,
     "modules": [
         {
             "position": 1,
-            "name": "Jokes",
+            "name": "Weather",
             "config": {
-                "size": [528, 80],
-                "padding_x": 10,"padding_y": 10,"fontsize": 14,"language": "en"
-                }
+                "size": [
+                    480,
+                    156
+                ],
+                "api_key": "dbf9d40601160ef34eb0ad85123c68b2",
+                "location": "6173331",
+                "round_temperature": true,
+                "round_windspeed": true,
+                "forecast_interval": "daily",
+                "units": "metric",
+                "hour_format": "12",
+                "use_beaufort": true,
+                "padding_x": 0,
+                "padding_y": 0,
+                "fontsize": 12,
+                "language": "en"
+            }
         },
         {
             "position": 2,
-            "name": "Calendar",
+            "name": "Agenda",
             "config": {
                 "size": [
-                    528,
-                    343
+                    480,
+                    468
                 ],
-                "week_starts_on": "Monday",
-                "show_events": true,
-                "ical_urls": "https://www.officeholidays.com/ics-fed/usa",
+                "ical_urls": "https://calendar.google.com/calendar/ical/lbf3a8tonfgglvmckjpfs136io%40group.calendar.google.com/private-9d7484dfa0783eac0a7857d93fc90470/basic.ics",
                 "ical_files": null,
-                "date_format": "D MMM",
+                "date_format": "dddDMMM",
                 "time_format": "HH:mm",
-                "padding_x": 10,"padding_y": 10,"fontsize": 14,"language": "en"
-                }
+                "padding_x": 0,
+                "padding_y": 0,
+                "fontsize": 12,
+                "language": "en"
+            }
         },
         {
             "position": 3,
-            "name": "Feeds",
+            "name": "Calendar",
             "config": {
-                "size": [528,132],
-                "feed_urls": "http://feeds.bbci.co.uk/news/world/rss.xml#",
-                "shuffle_feeds": true,
-                "padding_x": 10,"padding_y": 10,"fontsize": 14,"language": "en"
-
-                }
+                "size": [
+                    480,
+                    156
+                ],
+                "week_starts_on": "Sunday",
+                "show_events": false,
+                "ical_urls": "https://calendar.google.com/calendar/ical/lbf3a8tonfgglvmckjpfs136io%40group.calendar.google.com/private-9d7484dfa0783eac0a7857d93fc90470/basic.ics",
+                "ical_files": null,
+                "date_format": "DMMM",
+                "time_format": "HH:mm",
+                "padding_x": 0,
+                "padding_y": 0,
+                "fontsize": 12,
+                "language": "en"
+            }
         }
+    ],
+    "language": "en",
+    "calibration_hours": [
+        0,
+        12,
+        18
     ]
 }
-

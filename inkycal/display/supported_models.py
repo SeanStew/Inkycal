@@ -1,4 +1,5 @@
 supported_models = {
+    "epd_7_in_3_colour": (800, 480),
     "epd_13_in_3": (960, 680),
     "epd_13_in_3_colour": (960, 680),
     "epd_12_in_48": (1304, 984),
